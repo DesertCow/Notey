@@ -119,5 +119,19 @@ npm test
 <br>
 <br>
 
+<h3 align="center">📦 📦 NPM Package Information 📦 📦</h3>
+
+-----
+
+````
+# uuid (Random Number Generator)
+npm i uuid
+
+````
+
+
+
+<br>
+
 <br>
 <br>

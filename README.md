@@ -124,7 +124,7 @@ npm test
 -----
 
 ````
-# uuid (Random Number Generator)
+# uuid https://www.npmjs.com/package/uuid#uuidv4options-buffer-offset
 npm i uuid
 
 ````

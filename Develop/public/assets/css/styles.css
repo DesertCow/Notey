@@ -28,6 +28,10 @@ body {
   border: none;
 }
 
+.navbar {
+  background-color: blue;
+}
+
 .note-textarea {
   resize: none;
   height: calc(100% - 63px);

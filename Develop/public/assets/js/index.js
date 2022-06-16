@@ -85,6 +85,8 @@ const handleNoteDelete = (e) => {
   const note = e.target;
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
 
+  console.log("NOTE ID!!!!!!! = " + activeNote.id)
+
   if (activeNote.id === noteId) {
     activeNote = {};
   }
@@ -99,6 +101,9 @@ const handleNoteDelete = (e) => {
 const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
+
+  console.log("Active Node = " + activeNote.id);
+
   renderActiveNote();
 };
 
@@ -161,6 +166,7 @@ const renderNoteList = async (notes) => {
 
   jsonNotes.forEach((note) => {
     const li = createLi(note.title);
+    li.addEventListener('click', handleNoteView);
     li.dataset.note = JSON.stringify(note);
 
     noteListItems.push(li);

@@ -10,7 +10,7 @@ const express = require('express');
 const fs = require('fs');
 let appendFlag = 'w';
 
-fs.writeFile(`./db/db.json`, '{ }', { 'flag': appendFlag }, (err) =>
+fs.writeFile(`./db/db.json`, '[{"title":"Example Note","text":"Please Add Note Text","note_id":"1"},{"title":"Example Note 2","text":"Please Add Note Text","note_id":"2"}]', { 'flag': appendFlag }, (err) =>
   err
     ? console.error(err)
     : console.log(
@@ -93,17 +93,17 @@ app.post('/api/notes', (req, res) => {
 
     createNewNoteCard(title, text);
 
-    const noteString = JSON.stringify(newNote);
+
+    fs.readFile(`./db/db.json`, 'utf-8', (err, noteString) => {
+
+      noteString = JSON.parse(noteString);
+      noteString.push(newNote);
+      noteString = JSON.stringify(noteString);
+
+      fs.writeFile(`./db/db.json`, noteString, err => err ? console.log(err) : null)
+    })
 
 
-
-    fs.writeFile(`./db/db.json`, noteString, { 'flag': appendFlag }, (err) => {
-
-      if (err) {
-        console.error(err)
-      }
-
-    });
 
     appendFlag = 'a';
 

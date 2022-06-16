@@ -97,6 +97,20 @@ ul {
   border-bottom-left-radius: 0;
 }
 
+.card {
+  background-color: var(--mainBG);
+}
+
+.textBox {
+  /*margin-left: 50px;*/
+  padding: 50px;
+  width: 85%;
+  height: 50%;
+  -webkit-border-radius:;
+  -moz-border-radius:;
+  -ms-border-radius:;
+  -o-border-radius:;
+}
 .list-container {
   padding-left: 0;
 }
@@ -172,9 +186,16 @@ ul {
   -o-border-radius: 15px;
 }
 
+.trash-can-icon:hover {
+  color: #fff;
+  background-color: var(--btnTrashHighlight);
+  cursor: pointer;
+}
+
 .card-title {
   text-align: center;
   border-radius: 15px;
+  width: 100%;
   font-size: 25px;
   margin: 30px;
   padding: 15px;

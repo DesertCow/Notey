@@ -132,13 +132,57 @@ app.delete('/api/delete/:note_id', (req, res) => {
 
     // TODO: Add code that searches and deletes entire element from Database matching delKey
 
-    res.status(201).json(response);
-  } else {
-    res.status(500).json('[DELETE] Request Failed!');
-  }
+    fs.readFile(`./db/db.json`, 'utf-8', (err, existingNotes) => {
 
-}
-);
+      existingNotes = JSON.parse(existingNotes);
+
+      // noteString.push(newNote);
+
+      // function searchKey(key) {
+      //   return key.name === 'cherries';
+      // }
+
+      console.log("Exisiting Notes Count: " + existingNotes.length);
+
+
+
+      for (let i = 0; i < existingNotes.length; i++) {
+
+        console.log("Curernt Note ID " + i + " || " + existingNotes[i].note_id + " || " + existingNotes[i].text)
+
+        if (existingNotes[i].note_id === delKey) {
+
+          console.log("Key MATCH DELETE!");
+
+          let response = {
+            status: 'success',
+            body: 'Delete Completed!',
+          };
+
+          existingNotes.splice(i, 1);
+
+          i = 1 + existingNotes.length;
+        }
+
+      }
+      //console.log("FIND =" + existingNotes.find(delKey));
+      // console.log("NOTES = " + existingNotes);
+
+      existingNotes = JSON.stringify(existingNotes);
+
+      // fs.writeFile(`./db/db_after.json`, existingNotes, err => err ? console.log(err) : null)
+      fs.writeFile(`./db/db.json`, existingNotes, err => err ? console.log(err) : null)
+      return res.json(existingNotes);
+
+    })
+    // if (res.status(201).json(response)) {
+    //   if (res.status(201).json(response)) {
+    //   } else {
+    //     res.status(500).json('[DELETE] Request Failed!');
+    //   }
+    // }
+  }
+});
 
 function createNewNoteCard(title, text) {
 

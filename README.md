@@ -22,16 +22,10 @@ Version 0.1</h5>
 
 ---
 
-Execute by running the following command:
-
-````
-git clone git@github.com:DesertCow/Notey.git
-cd Notey
-npm init -y
-npm i
-
-
-````
+<div align="center">
+<h3> Hosted by Heroku</h3>
+<a href="https://notey-2022.herokuapp.com/">https://notey-2022.herokuapp.com/</a>
+</div>
 
 <br>
 <br>

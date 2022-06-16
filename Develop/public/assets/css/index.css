@@ -1,0 +1,72 @@
+:root {
+  --headerBG: #219EBC;
+  --btnHighlight: #FF99CA;
+  --btnTrashHighlight: #FFEBB8;
+  --noteTitleBG: #B8E7F3;
+
+  --mainBG: #FF8F4D;
+  
+}
+
+* {
+
+}
+
+html body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--mainBG);
+}
+
+.navbar {
+  background-color: var(--headerBG) ;
+}
+
+.navbar-brand {
+  font-family: 'Mr Dafoe', cursive;
+  font-size: 80px;
+  padding-left: 20px;
+  margin-left: 30px;
+  color: white;
+}
+
+.navbar-brand:hover {
+  color: var(--btnHighlight);
+}
+
+.notey {
+  font-family: 'Mr Dafoe', cursive;
+  margin-left: 25px;
+  margin-bottom: 30px;
+  font-size: 125px;
+  margin-top: 50px;
+}
+
+.opener {
+  font-size: 50px;
+
+}
+
+.startBTN {
+  background-color: var(--headerBG);
+  color: white;
+  max-height: 80px;
+  font-size: 30px;
+  padding: 15px;
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.startBTN:hover {
+  background-color: #B8BFF2;
+  color: white;
+}
+
+.mainBox {
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+}

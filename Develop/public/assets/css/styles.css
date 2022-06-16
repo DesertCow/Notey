@@ -1,16 +1,11 @@
 :root {
   --headerBG: #219EBC;
-  --btnHighlight: #22BD57;
+  --btnHighlight: #FF99CA;
   --btnTrashHighlight: #FFEBB8;
   --noteTitleBG: #B8E7F3;
-
   --oldNoteBG: #FFCC4D;
+  --mainBG: #FF8F4D;
 
-  --main-bg-color: #FFD5C2;
-  --cardBG: #F28F3B;
-  --footerBG: #1D3557;
-  --whiteMatch: #FFFFFF;
-  
 }
 
 
@@ -22,13 +17,18 @@ html body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: var(--mainBG);
 }
 
 .save-note {
-  display: inline-block;
+  display: none;
   margin: 20px;
   height: 50px;
   width: 50px;
+}
+
+ul {
+  max-width: 250px;
 }
 
 .icons i {
@@ -60,11 +60,16 @@ html body {
   background-color: var(--headerBG);
 }
 
+.navbar-brand:hover {
+  color: var(--btnHighlight);
+}
+
 .navbar-brand {
   font-family: 'Mr Dafoe', cursive;
   font-size: 80px;
   padding-left: 20px;
   margin-left: 30px;
+  color: white;
 }
 
 .note-textarea {

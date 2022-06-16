@@ -41,7 +41,7 @@ console.log("RANDOM = " + uuidv4()); //
 
 
 //* Initialize app variable
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 //* ###### Boilerplate URL Encoded Handler

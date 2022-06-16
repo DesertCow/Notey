@@ -15,15 +15,19 @@
       integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./public/assets/css/styles.css" />
+    <link rel="stylesheet" href="./public/assets/css/reset.css" />
   </head>
 
   <body>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark">
       <a class="navbar-brand" href="/">Note Taker </a>
       <div class="icons">
-        <i class="fas fa-save text-light save-note"></i>
-        <i class="fas fa-plus text-light new-note"></i>
+        <i class="fas btn fa-save m-3 p-3 text-light save-note"></i>
+        <i class="fas btn fa-plus m-3 p-3 text-light new-note"></i>
       </div>
     </nav>
     <div class="container-fluid">
@@ -31,6 +35,22 @@
         <div class="col-4 list-container">
           <div class="card">
             <ul class="list-group"></ul>
+            <li>
+              <div class="d-flex card" style="width: 30rem;">
+                <div class="row card-body">
+                  <h5 class="col card-title">Grocery Store List</h5>
+                  <img class="col btnTrash trash-can-icon" src="./public/assets/img/TrashCan_Icon.png" alt="Trash Can Logo">
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex card" style="width: 30rem;">
+                <div class="row card-body">
+                  <h5 class="col card-title">Grocery Store List</h5>
+                  <img class="col btnTrash trash-can-icon" src="./public/assets/img/TrashCan_Icon.png" alt="Trash Can Logo">
+                </div>
+              </div>
+            </li>
           </div>
         </div>
         <div class="col-8">
@@ -44,6 +64,6 @@
         </div>
       </div>
     </div>
-    <script src="/assets/js/index.js"></script>
+    <script src="./public/assets/js/index.js"></script>
   </body>
 </html>

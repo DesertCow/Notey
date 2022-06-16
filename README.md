@@ -55,7 +55,7 @@ npm i
 ---
 <p align="center"> <b>GIVEN</b> a note-taking application<br><br></p>
 <p align="left"><b>WHEN</b> I open the Note Taker<br>
-❌  THEN I am presented with a landing page with a link to a notes page<br>
+✔️  THEN I am presented with a landing page with a link to a notes page<br>
 <b>WHEN</b> I click on the link to the notes page<br>
 ❌  THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column<br>
 <b>WHEN</b> I enter a new note title and the note’s text<br>
@@ -67,7 +67,7 @@ npm i
 <b>WHEN</b> I click on the Write icon in the navigation at the top of the page<br>
 ❌ THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column Mock-Up<br>
 <b>WHEN</b> I click on the delete icon<br>
-❌ THEN the coresponding notes is deleted✔️<br>
+❌ THEN the coresponding notes is deleted<br>
 <br>
 <br>
 <br>

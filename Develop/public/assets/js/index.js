@@ -1,6 +1,7 @@
 let noteTitle;
 let noteText;
 let saveNoteBtn;
+let deleteNoteBtn;
 let newNoteBtn;
 let noteList;
 
@@ -8,6 +9,7 @@ if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
   saveNoteBtn = document.querySelector('.save-note');
+  deleteNoteBtn = document.querySelector('.delete-note');
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
 }
@@ -31,7 +33,9 @@ const getNotes = () =>
     headers: {
       'Content-Type': 'application/json',
     },
-  });
+  })
+    .then((res) => res.json())
+    .then((data) => data)
 
 const saveNote = (note) =>
   fetch('/api/notes', {
@@ -84,6 +88,8 @@ const handleNoteDelete = (e) => {
   // Prevents the click listener for the list from being called when the button inside of it is clicked
   e.stopPropagation();
 
+  // console.log("Delete Button Clicked! || " + activeNote.id)
+
   const note = e.target;
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
 
@@ -120,7 +126,13 @@ const handleRenderSaveBtn = () => {
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
+  // try {
+
+  // console.log("NOTESzz = " + notes);
+  // let jsonNotes = await notes.json();
   let jsonNotes = await notes.json();
+
+
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
@@ -143,6 +155,7 @@ const renderNoteList = async (notes) => {
       const delBtnEl = document.createElement('i');
       delBtnEl.classList.add(
         'fas',
+        'btn',
         'fa-trash-alt',
         'float-right',
         'text-danger',
@@ -172,14 +185,25 @@ const renderNoteList = async (notes) => {
   }
 };
 
+
 // Gets notes from the db and renders them to the sidebar
-const getAndRenderNotes = () => getNotes().then(renderNoteList);
+const getAndRenderNotes = () => getNotes().then(renderNoteList());
+// const getAndRenderNotes = () => getNotes().then();
 
 if (window.location.pathname === '/notes') {
+
   saveNoteBtn.addEventListener('click', handleNoteSave);
+  deleteNoteBtn.addEventListener('click', handleNoteDelete);
   newNoteBtn.addEventListener('click', handleNewNoteView);
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
+
+  console.log("/notes Detected! = " + getNotes());
+
+  renderNoteList();
+
+  getAndRenderNotes();
+
 }
 
-getAndRenderNotes();
+

@@ -1,16 +1,12 @@
 :root {
   --headerBG: #219EBC;
-  --btnHighlight: #CAEDF6;
+  --btnHighlight: #FF99CA;
+  --btnGroup2: #2F6D7D;
   --btnTrashHighlight: #FFEBB8;
   --noteTitleBG: #B8E7F3;
-
   --oldNoteBG: #FFCC4D;
+  --mainBG: #FF8F4D;
 
-  --main-bg-color: #FFD5C2;
-  --cardBG: #F28F3B;
-  --footerBG: #1D3557;
-  --whiteMatch: #FFFFFF;
-  
 }
 
 
@@ -22,13 +18,18 @@ html body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: var(--mainBG);
 }
 
 .save-note {
-  display: inline-block;
+  display: none;
   margin: 20px;
   height: 50px;
   width: 50px;
+}
+
+ul {
+  max-width: 250px;
 }
 
 .icons i {
@@ -37,6 +38,15 @@ html body {
   margin-right: 30px;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.icons {
+  background-color: var(--noteTitleBG);
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
 }
 
 .note-textarea,
@@ -51,10 +61,16 @@ html body {
   background-color: var(--headerBG);
 }
 
+.navbar-brand:hover {
+  color: var(--btnHighlight);
+}
+
 .navbar-brand {
   font-family: 'Mr Dafoe', cursive;
   font-size: 80px;
   padding-left: 20px;
+  margin-left: 30px;
+  color: white;
 }
 
 .note-textarea {
@@ -113,7 +129,7 @@ html body {
 
 .btn:hover {
   color: #fff;
-  background-color: var(--btnHighlight);
+  background-color: var(--btnGroup2);
   cursor: pointer;
 }
 
@@ -169,4 +185,32 @@ html body {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+}
+
+/* =================== Footer ===================  */
+
+footer {
+  /* position : absolute; */
+  bottom : 0;
+  margin-bottom: 0px;
+  min-height: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  background: var(--headerBG);
+  color: var(--whiteMatch);
+  width: 100%;
+}
+
+
+footer ul li {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+footer ul {
+  text-align: center;
 }

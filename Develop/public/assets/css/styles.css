@@ -1,6 +1,6 @@
 :root {
   --headerBG: #219EBC;
-  --btnHighlight: #CAEDF6;
+  --btnHighlight: #22BD57;
   --btnTrashHighlight: #FFEBB8;
   --noteTitleBG: #B8E7F3;
 
@@ -39,6 +39,15 @@ html body {
   cursor: pointer;
 }
 
+.icons {
+  background-color: var(--noteTitleBG);
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+
 .note-textarea,
 .note-title {
   color: #000000;
@@ -55,6 +64,7 @@ html body {
   font-family: 'Mr Dafoe', cursive;
   font-size: 80px;
   padding-left: 20px;
+  margin-left: 30px;
 }
 
 .note-textarea {

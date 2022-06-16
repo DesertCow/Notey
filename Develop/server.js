@@ -1,6 +1,7 @@
 //
 //
 // npm i uuid
+// npm cheerio
 
 
 //* Import express
@@ -17,6 +18,12 @@ fs.writeFile(`./db/db.json`, '{ }', { 'flag': appendFlag }, (err) =>
     )
 );
 
+// var beerCardBeerTitleEL = document.querySelector(".beerCardBeerTitle");
+// const createNewNoteCard = require('./store');
+
+const cheerio = require('cheerio');
+
+const notesHTMLPath = __dirname + './public/notes.html';
 
 //* Import Path
 const path = require('path');
@@ -64,7 +71,7 @@ app.get('*', (req, res) =>
 //! ================= Post: /api/notes =================
 app.post('/api/notes', (req, res) => {
   // Log that a POST request was received
-  console.info(`${req.method} request received to add a review`);
+  console.info(`${req.method} request received to add a new note`);
 
   //* ######  extracts the data from JSON passed with Request
   const { title, text } = req.body;
@@ -83,6 +90,8 @@ app.post('/api/notes', (req, res) => {
       status: 'success',
       body: newNote,
     };
+
+    createNewNoteCard(title, text);
 
     const noteString = JSON.stringify(newNote);
 
@@ -131,7 +140,26 @@ app.delete('/api/delete/:note_id', (req, res) => {
 }
 );
 
+function createNewNoteCard(title, text) {
+
+  console.log("Title/Text = " + title + " // " + text);
+
+
+  // const $ = cheerio.load('<h2 class="title">Hello world</h2>');
+  // const $ = cheerio.load(notesHTMLPath);
+  //   const $ = cheerio.load('../public/notes.html');
+
+  //   const noteCardDiv = $('.list-group');
+
+  //   console.log("Path = " + notesHTMLPath);
+  //   console.log(noteCardDiv.html());
+  //   console.log(noteCardDiv.text());
+
+  //   $.root().html();
+}
+
 
 app.listen(PORT, () =>
   console.log(`Example app listening at http://localhost:${PORT}`)
 );
+

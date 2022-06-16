@@ -10,7 +10,7 @@ const express = require('express');
 const fs = require('fs');
 let appendFlag = 'w';
 
-fs.writeFile(`./db/db.json`, '{ }', { 'flag': appendFlag }, (err) =>
+fs.writeFile(`./db/db.json`, '[{"title":"Example Note","text":"Please Add Note Text","note_id":"1"},{"title":"Example Note 2","text":"Please Add Note Text","note_id":"2"}]', { 'flag': appendFlag }, (err) =>
   err
     ? console.error(err)
     : console.log(
@@ -41,7 +41,7 @@ console.log("RANDOM = " + uuidv4()); //
 
 
 //* Initialize app variable
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 //* ###### Boilerplate URL Encoded Handler
@@ -93,17 +93,17 @@ app.post('/api/notes', (req, res) => {
 
     createNewNoteCard(title, text);
 
-    const noteString = JSON.stringify(newNote);
+
+    fs.readFile(`./db/db.json`, 'utf-8', (err, noteString) => {
+
+      noteString = JSON.parse(noteString);
+      noteString.push(newNote);
+      noteString = JSON.stringify(noteString);
+
+      fs.writeFile(`./db/db.json`, noteString, err => err ? console.log(err) : null)
+    })
 
 
-
-    fs.writeFile(`./db/db.json`, noteString, { 'flag': appendFlag }, (err) => {
-
-      if (err) {
-        console.error(err)
-      }
-
-    });
 
     appendFlag = 'a';
 
@@ -132,13 +132,57 @@ app.delete('/api/delete/:note_id', (req, res) => {
 
     // TODO: Add code that searches and deletes entire element from Database matching delKey
 
-    res.status(201).json(response);
-  } else {
-    res.status(500).json('[DELETE] Request Failed!');
-  }
+    fs.readFile(`./db/db.json`, 'utf-8', (err, existingNotes) => {
 
-}
-);
+      existingNotes = JSON.parse(existingNotes);
+
+      // noteString.push(newNote);
+
+      // function searchKey(key) {
+      //   return key.name === 'cherries';
+      // }
+
+      console.log("Exisiting Notes Count: " + existingNotes.length);
+
+
+
+      for (let i = 0; i < existingNotes.length; i++) {
+
+        console.log("Curernt Note ID " + i + " || " + existingNotes[i].note_id + " || " + existingNotes[i].text)
+
+        if (existingNotes[i].note_id === delKey) {
+
+          console.log("Key MATCH DELETE!");
+
+          let response = {
+            status: 'success',
+            body: 'Delete Completed!',
+          };
+
+          existingNotes.splice(i, 1);
+
+          i = 1 + existingNotes.length;
+        }
+
+      }
+      //console.log("FIND =" + existingNotes.find(delKey));
+      // console.log("NOTES = " + existingNotes);
+
+      existingNotes = JSON.stringify(existingNotes);
+
+      // fs.writeFile(`./db/db_after.json`, existingNotes, err => err ? console.log(err) : null)
+      fs.writeFile(`./db/db.json`, existingNotes, err => err ? console.log(err) : null)
+      return res.json(existingNotes);
+
+    })
+    // if (res.status(201).json(response)) {
+    //   if (res.status(201).json(response)) {
+    //   } else {
+    //     res.status(500).json('[DELETE] Request Failed!');
+    //   }
+    // }
+  }
+});
 
 function createNewNoteCard(title, text) {
 

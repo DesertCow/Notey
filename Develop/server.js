@@ -42,13 +42,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-//* http://localhost:3001/ will return the content of our `terms.json` file
+app.use('/public', express.static(path.join(__dirname, '/public')));
 
 
 //? ================= Route: /notes =================
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, './public/notes.html'))
 );
+
 
 app.get('/api/notes', (req, res) =>
   res.sendFile(path.join(__dirname, './db/db.json'))

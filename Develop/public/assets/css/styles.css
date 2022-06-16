@@ -1,5 +1,24 @@
-html,
-body {
+:root {
+  --headerBG: #219EBC;
+  --btnHighlight: #CAEDF6;
+  --btnTrashHighlight: #FFEBB8;
+  --noteTitleBG: #B8E7F3;
+
+  --oldNoteBG: #FFCC4D;
+
+  --main-bg-color: #FFD5C2;
+  --cardBG: #F28F3B;
+  --footerBG: #1D3557;
+  --whiteMatch: #FFFFFF;
+  
+}
+
+
+* {
+
+}
+
+html body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -29,7 +48,13 @@ body {
 }
 
 .navbar {
-  background-color: blue;
+  background-color: var(--headerBG);
+}
+
+.navbar-brand {
+  font-family: 'Mr Dafoe', cursive;
+  font-size: 80px;
+  padding-left: 20px;
 }
 
 .note-textarea {
@@ -83,4 +108,65 @@ body {
   border-right: none;
   padding: 20px;
   cursor: pointer;
+}
+
+
+.btn:hover {
+  color: #fff;
+  background-color: var(--btnHighlight);
+  cursor: pointer;
+}
+
+.btn {
+  transition-duration: 0.4s;
+}
+
+.btnTrash:hover {
+  color: #fff;
+  background-color: var(--btnTrashHighlight);
+  cursor: pointer;
+}
+
+.btnTrash {
+  transition-duration: 0.4s;
+}
+
+.card-body {
+  background-color: var(--oldNoteBG);
+  width: 100%;
+  max-height: 150px;
+  justify-content: center;
+}
+
+.card-title:hover {
+  color: #fff;
+  background-color: #3DBDDD;
+  cursor: pointer;
+}
+
+.trash-can-icon {
+  max-height: 105px;
+  max-width: 70px;
+  padding: 18px;
+  margin: 15px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.card-title {
+  text-align: center;
+  border-radius: 15px;
+  font-size: 25px;
+  margin: 30px;
+  padding: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  background-color: var(--noteTitleBG);
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
 }

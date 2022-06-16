@@ -1,6 +1,7 @@
 :root {
   --headerBG: #219EBC;
   --btnHighlight: #FF99CA;
+  --btnGroup2: #2F6D7D;
   --btnTrashHighlight: #FFEBB8;
   --noteTitleBG: #B8E7F3;
   --oldNoteBG: #FFCC4D;
@@ -128,7 +129,7 @@ ul {
 
 .btn:hover {
   color: #fff;
-  background-color: var(--btnHighlight);
+  background-color: var(--btnGroup2);
   cursor: pointer;
 }
 
@@ -184,4 +185,32 @@ ul {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+}
+
+/* =================== Footer ===================  */
+
+footer {
+  /* position : absolute; */
+  bottom : 0;
+  margin-bottom: 0px;
+  min-height: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  background: var(--headerBG);
+  color: var(--whiteMatch);
+  width: 100%;
+}
+
+
+footer ul li {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+footer ul {
+  text-align: center;
 }

@@ -1,3 +1,7 @@
+//
+//
+//
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -53,15 +57,11 @@ const deleteNote = (id) =>
 const renderActiveNote = (e) => {
   hide(saveNoteBtn);
 
-  console.log("Active Titile 2 = " + activeNote.note_id)
-  console.log("E TARGET 2 = " + activeNote);
-
   if (activeNote.note_id) {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
-    console.log("READY ONLY =" + activeNote.note_id)
   } else {
     noteTitle.removeAttribute('readonly');
     noteText.removeAttribute('readonly');
@@ -94,7 +94,6 @@ const handleNoteDelete = (e) => {
   if (activeNote.note_id === noteId) {
     activeNote = [{}];
   }
-  console.log("NOTE ID!fgfdsgfds!!!!!! = " + noteId)
 
   deleteNote(noteId).then(() => {
     getAndRenderNotes();
@@ -103,7 +102,6 @@ const handleNoteDelete = (e) => {
   });
 
   handleNewNoteView();
-  console.log("NOTE ID!!d!!!!! = " + noteId)
 };
 
 
@@ -114,7 +112,6 @@ const handleNoteView = (e) => {
 
   activeNote = e.target.parentElement.getAttribute('data-note')
 
-  console.log("E TARGET Active = " + activeNote);
   activeNote = JSON.parse(activeNote);
   renderActiveNote();
 };
@@ -157,6 +154,7 @@ const renderNoteList = async (notes) => {
 
     const spanEl = document.createElement('span');
     spanEl.classList.add('list-item-title');
+    spanEl.classList.add('mt-4');
     spanEl.innerText = text;
     spanEl.addEventListener('click', handleNoteView);
 
@@ -210,3 +208,4 @@ if (window.location.pathname === '/notes') {
 getAndRenderNotes();
 
 
+//! ======================= EOF =====================

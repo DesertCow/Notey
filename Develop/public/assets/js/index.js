@@ -43,21 +43,27 @@ const saveNote = (note) =>
   });
 
 const deleteNote = (id) =>
-  fetch(`/api/notes/${id}`, {
+  fetch(`/api/delete/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
   });
 
-const renderActiveNote = () => {
+const renderActiveNote = (e) => {
   hide(saveNoteBtn);
 
-  if (activeNote.id) {
+  activeNote = JSON.parse(activeNote);
+
+  console.log("Active Titile 2" + activeNote.note_id)
+  console.log("E TARGET 1 = " + activeNote);
+
+  if (activeNote.note_id) {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
+    console.log("READY ONLY =" + activeNote.note_id)
   } else {
     noteTitle.removeAttribute('readonly');
     noteText.removeAttribute('readonly');
@@ -83,32 +89,46 @@ const handleNoteDelete = (e) => {
   e.stopPropagation();
 
   const note = e.target;
-  const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
+  const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).note_id;
 
-  console.log("NOTE ID!!!!!!! = " + activeNote.id)
 
-  if (activeNote.id === noteId) {
+
+  if (activeNote.note_id === noteId) {
     activeNote = {};
   }
+  console.log("NOTE ID!fgfdsgfds!!!!!! = " + noteId)
 
   deleteNote(noteId).then(() => {
     getAndRenderNotes();
-    renderActiveNote();
+    handleNewNoteView();
+    // renderActiveNote();
   });
+
+  handleNewNoteView();
+  console.log("NOTE ID!!d!!!!! = " + noteId)
 };
+
 
 // Sets the activeNote and displays it
 const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
+  // activeNote = JSON.parse(activeNote);
 
-  console.log("Active Node = " + activeNote.id);
+  activeNote = e.target.parentElement.getAttribute('data-note')
+
+  console.log("E TARGET 1 = " + activeNote);
 
   renderActiveNote();
 };
 
 // Sets the activeNote to and empty object and allows the user to enter a new note
 const handleNewNoteView = (e) => {
+  activeNote = {};
+  //renderActiveNote();
+};
+
+const handleNewButtonNoteView = (e) => {
   activeNote = {};
   renderActiveNote();
 };
@@ -166,7 +186,7 @@ const renderNoteList = async (notes) => {
 
   jsonNotes.forEach((note) => {
     const li = createLi(note.title);
-    li.addEventListener('click', handleNoteView);
+    // li.addEventListener('click', handleNoteView);
     li.dataset.note = JSON.stringify(note);
 
     noteListItems.push(li);
@@ -182,7 +202,7 @@ const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
-  newNoteBtn.addEventListener('click', handleNewNoteView);
+  newNoteBtn.addEventListener('click', handleNewButtonNoteView);
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }

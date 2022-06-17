@@ -53,10 +53,8 @@ const deleteNote = (id) =>
 const renderActiveNote = (e) => {
   hide(saveNoteBtn);
 
-  activeNote = JSON.parse(activeNote);
-
-  console.log("Active Titile 2" + activeNote.note_id)
-  console.log("E TARGET 1 = " + activeNote);
+  console.log("Active Titile 2 = " + activeNote.note_id)
+  console.log("E TARGET 2 = " + activeNote);
 
   if (activeNote.note_id) {
     noteTitle.setAttribute('readonly', true);
@@ -94,14 +92,14 @@ const handleNoteDelete = (e) => {
 
 
   if (activeNote.note_id === noteId) {
-    activeNote = {};
+    activeNote = [{}];
   }
   console.log("NOTE ID!fgfdsgfds!!!!!! = " + noteId)
 
   deleteNote(noteId).then(() => {
     getAndRenderNotes();
-    handleNewNoteView();
-    // renderActiveNote();
+    //handleNewNoteView();
+    renderActiveNote();
   });
 
   handleNewNoteView();
@@ -113,23 +111,25 @@ const handleNoteDelete = (e) => {
 const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
-  // activeNote = JSON.parse(activeNote);
 
   activeNote = e.target.parentElement.getAttribute('data-note')
 
-  console.log("E TARGET 1 = " + activeNote);
-
+  console.log("E TARGET Active = " + activeNote);
+  activeNote = JSON.parse(activeNote);
   renderActiveNote();
 };
 
 // Sets the activeNote to and empty object and allows the user to enter a new note
 const handleNewNoteView = (e) => {
   activeNote = {};
-  //renderActiveNote();
+  renderActiveNote();
 };
 
 const handleNewButtonNoteView = (e) => {
   activeNote = {};
+
+  activeNote = JSON.parse(activeNote);
+
   renderActiveNote();
 };
 
@@ -202,7 +202,7 @@ const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
-  newNoteBtn.addEventListener('click', handleNewButtonNoteView);
+  newNoteBtn.addEventListener('click', handleNewNoteView);
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }

@@ -3,14 +3,14 @@
 // npm i uuid
 // npm cheerio
 
-
+//! ================= Import Section =================
 //* Import express
 const express = require('express');
 
 const fs = require('fs');
 let appendFlag = 'w';
 
-fs.writeFile(`./db/db.json`, '[{"title":"Example Note","text":"Please Add Note Text","note_id":"1"},{"title":"Example Note 2","text":"Please Add Note Text","note_id":"2"}]', { 'flag': appendFlag }, (err) =>
+fs.writeFile(`./db/db.json`, '[{"title":"Welcome to Notey!","text":"Example Note Text","note_id":"ex1"},{"title":"Edit Your First Note!","text":"Example Note Text","note_id":"ex2"}]', { 'flag': appendFlag }, (err) =>
   err
     ? console.error(err)
     : console.log(
@@ -18,20 +18,8 @@ fs.writeFile(`./db/db.json`, '[{"title":"Example Note","text":"Please Add Note T
     )
 );
 
-// var beerCardBeerTitleEL = document.querySelector(".beerCardBeerTitle");
-// const createNewNoteCard = require('./store');
-
-const cheerio = require('cheerio');
-
-const notesHTMLPath = __dirname + './public/notes.html';
-
 //* Import Path
 const path = require('path');
-
-//* Import 'terms.json' file
-// const noteDatabase = require('./db/db.json')
-// const noteAdd = require('./public/notes.html')
-
 
 //* Import Random ID/
 const { v4: uuidv4 } = require('uuid');
@@ -48,27 +36,27 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
+//* Serve static content from public directory
 app.use('/public', express.static(path.join(__dirname, '/public')));
 
+//! ======================= Routing =====================
 
-//? ================= Route: /notes =================
+//? ================= GET: /notes =================
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, './public/notes.html'))
 );
 
-
+//? ================= GET: /api/notes =================
 app.get('/api/notes', (req, res) =>
   res.sendFile(path.join(__dirname, './db/db.json'))
 );
 
-//? ================= Route: * =================
+//? ================= GET: * =================
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, './public/index.html'))
 );
 
-
-//! ================= Post: /api/notes =================
+//? ================= POST: /api/notes =================
 app.post('/api/notes', (req, res) => {
   // Log that a POST request was received
   console.info(`${req.method} request received to add a new note`);
@@ -91,9 +79,6 @@ app.post('/api/notes', (req, res) => {
       body: newNote,
     };
 
-    createNewNoteCard(title, text);
-
-
     fs.readFile(`./db/db.json`, 'utf-8', (err, noteString) => {
 
       noteString = JSON.parse(noteString);
@@ -103,8 +88,7 @@ app.post('/api/notes', (req, res) => {
       fs.writeFile(`./db/db.json`, noteString, err => err ? console.log(err) : null)
     })
 
-
-
+    //* Set Flag for FS write from overwrite to append
     appendFlag = 'a';
 
     console.log(response);
@@ -117,7 +101,8 @@ app.post('/api/notes', (req, res) => {
   }
 });
 
-//! ================= Post: /api/delete/:note_id =================
+
+//? ================= POST: /api/delete/:note_id =================
 app.delete('/api/delete/:note_id', (req, res) => {
   // res.sendFile(path.join(__dirname, './public/index.html'))
   console.log("User has tried to delete a post!" + req.params.note_id);
@@ -128,31 +113,21 @@ app.delete('/api/delete/:note_id', (req, res) => {
 
     let delKey = removePostID;
 
-    console.log("Delete Key = " + delKey);
-
-    // TODO: Add code that searches and deletes entire element from Database matching delKey
+    // console.log("Delete Key = " + delKey);
 
     fs.readFile(`./db/db.json`, 'utf-8', (err, existingNotes) => {
 
       existingNotes = JSON.parse(existingNotes);
 
-      // noteString.push(newNote);
-
-      // function searchKey(key) {
-      //   return key.name === 'cherries';
-      // }
-
-      console.log("Exisiting Notes Count: " + existingNotes.length);
-
-
+      // console.log("Exisiting Notes Count: " + existingNotes.length);
 
       for (let i = 0; i < existingNotes.length; i++) {
 
-        console.log("Curernt Note ID " + i + " || " + existingNotes[i].note_id + " || " + existingNotes[i].text)
+        // console.log("Curernt Note ID " + i + " || " + existingNotes[i].note_id + " || " + existingNotes[i].text)
 
         if (existingNotes[i].note_id === delKey) {
 
-          console.log("Key MATCH DELETE!");
+          // console.log("Key MATCH DELETE!");
 
           let response = {
             status: 'success',
@@ -165,12 +140,9 @@ app.delete('/api/delete/:note_id', (req, res) => {
         }
 
       }
-      //console.log("FIND =" + existingNotes.find(delKey));
-      // console.log("NOTES = " + existingNotes);
 
       existingNotes = JSON.stringify(existingNotes);
 
-      // fs.writeFile(`./db/db_after.json`, existingNotes, err => err ? console.log(err) : null)
       fs.writeFile(`./db/db.json`, existingNotes, err => err ? console.log(err) : null)
       return res.json(existingNotes);
 
@@ -184,26 +156,11 @@ app.delete('/api/delete/:note_id', (req, res) => {
   }
 });
 
-function createNewNoteCard(title, text) {
-
-  console.log("Title/Text = " + title + " // " + text);
-
-
-  // const $ = cheerio.load('<h2 class="title">Hello world</h2>');
-  // const $ = cheerio.load(notesHTMLPath);
-  //   const $ = cheerio.load('../public/notes.html');
-
-  //   const noteCardDiv = $('.list-group');
-
-  //   console.log("Path = " + notesHTMLPath);
-  //   console.log(noteCardDiv.html());
-  //   console.log(noteCardDiv.text());
-
-  //   $.root().html();
-}
-
 
 app.listen(PORT, () =>
   console.log(`Example app listening at http://localhost:${PORT}`)
 );
 
+
+
+//! ======================= EOF =====================

@@ -1,14 +1,10 @@
 :root {
   --headerBG: #219EBC;
-
   --btnHighlight: #FF99CA;
   --btnHLStart: #2F6D7D;
   --btnTrashHighlight: #FFEBB8;
-
   --noteTitleBG: #B8E7F3;
-
   --mainBG: #FF8F4D;
-  
 }
 
 * {

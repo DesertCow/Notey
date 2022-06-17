@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="./public/assets/css/styles.css" />
     <link rel="stylesheet" href="./public/assets/css/reset.css" />
   </head>
-
   <body>
     <nav class="navbar">
       <a class="navbar-brand" href="/">Notey!</a>
@@ -30,19 +29,11 @@
         <i class="fas btn fa-plus m-3 p-3 text-light new-note"></i>
       </div>
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid d-flex">
       <div class="row">
-        <div class="col-4 list-container">
+        <div class="col-4 list-container content-wrap">
           <div class="card">
-            <ul class="list-group">
-              <li>
-                <div class="d-flex card" style="width: 30rem;">
-                  <div class="row card-body">
-                    <h5 class="col card-title">Grocery Store List</h5>
-                    <img class="col btn btnTrash delete-note trash-can-icon" src="./public/assets/img/TrashCan_Icon.png" alt="Trash Can Logo">
-                  </div>
-                </div>
-              </li>
+            <ul class="col list-group">
             </ul>
           </div>
         </div>
@@ -59,14 +50,15 @@
         </div>
       </div>
     </div>
-      <footer>
-        <ul class="footer align-items-center p-3">
+      <footer class="navbar fixed-bottom p-2 align-items-center">
+        <ul class="footer">
           <li>
             <h5>Made by 🌵 Desert-Cow 🐄</h5>
           </li>
           <li>
             <p>&copy; 2022 Monkey See Monkey Do LLC.</p>
           </li>
+        </br>
         </ul>
       </footer>
     <script src="./public/assets/js/index.js"></script>

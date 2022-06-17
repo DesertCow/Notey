@@ -1,7 +1,7 @@
 //
 //
 // npm i uuid
-// npm cheerio
+//
 
 //! ================= Import Section =================
 //* Import express
@@ -23,10 +23,6 @@ const path = require('path');
 
 //* Import Random ID/
 const { v4: uuidv4 } = require('uuid');
-
-// Generate RANDOM ID
-console.log("RANDOM = " + uuidv4()); //
-
 
 //* Initialize app variable
 const PORT = process.env.PORT || 3001;
@@ -58,8 +54,6 @@ app.get('*', (req, res) =>
 
 //? ================= POST: /api/notes =================
 app.post('/api/notes', (req, res) => {
-  // Log that a POST request was received
-  console.info(`${req.method} request received to add a new note`);
 
   //* ######  extracts the data from JSON passed with Request
   const { title, text } = req.body;
@@ -91,8 +85,6 @@ app.post('/api/notes', (req, res) => {
     //* Set Flag for FS write from overwrite to append
     appendFlag = 'a';
 
-    console.log(response);
-
     //* ###### Return a "VALID" respone in the form of JSON to client
     res.status(201).json(response);
   } else {
@@ -104,8 +96,6 @@ app.post('/api/notes', (req, res) => {
 
 //? ================= POST: /api/delete/:note_id =================
 app.delete('/api/delete/:note_id', (req, res) => {
-  // res.sendFile(path.join(__dirname, './public/index.html'))
-  console.log("User has tried to delete a post!" + req.params.note_id);
 
   const removePostID = req.params.note_id;
 
@@ -113,21 +103,15 @@ app.delete('/api/delete/:note_id', (req, res) => {
 
     let delKey = removePostID;
 
-    // console.log("Delete Key = " + delKey);
-
     fs.readFile(`./db/db.json`, 'utf-8', (err, existingNotes) => {
 
       existingNotes = JSON.parse(existingNotes);
 
-      // console.log("Exisiting Notes Count: " + existingNotes.length);
-
       for (let i = 0; i < existingNotes.length; i++) {
 
-        // console.log("Curernt Note ID " + i + " || " + existingNotes[i].note_id + " || " + existingNotes[i].text)
 
         if (existingNotes[i].note_id === delKey) {
 
-          // console.log("Key MATCH DELETE!");
 
           let response = {
             status: 'success',

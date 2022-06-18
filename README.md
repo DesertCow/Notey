@@ -8,15 +8,14 @@
 
 💼 Module 11 Challenge 💼<br>
 By Clayton Skaggs<br>
-(WW24.5) / June 19th 2022
+(WW24.5) / June 17th 2022
 
-Version 0.1</h5>
+Version 0.2</h5>
 </div>
 
 <br>
 <br>
 
----
 
 <h3 align="center">🚀 🚀 Deployment Information 🚀 🚀</h3>
 
@@ -96,23 +95,6 @@ Version 0.1</h5>
 <br>
 <br>
 
-<h3 align="center">🧪 🧪 Test Information 🧪 🧪</h3>
-
------
-
-<br>
-
-<h4>How to execute test suite:</h4>
-
-````
-
-npm test
-
-````
-
-<br>
-<br>
-
 <h3 align="center">📦 📦 NPM Package Information 📦 📦</h3>
 
 -----
@@ -120,6 +102,7 @@ npm test
 ````
 # uuid https://www.npmjs.com/package/uuid#uuidv4options-buffer-offset
 npm i uuid
+npm i express
 
 ````
 

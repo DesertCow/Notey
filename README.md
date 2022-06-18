@@ -58,7 +58,7 @@ Version 0.2</h5>
 <b>WHEN</b> I click on an existing note in the list in the left-hand column<br>
 ✔️ THEN that note appears in the right-hand column<br>
 <b>WHEN</b> I click on the Write icon in the navigation at the top of the page<br>
-✔️ THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column Mock-Up<br>
+✔️ THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column<br>
 <b>WHEN</b> I click on the delete icon<br>
 ✔️ THEN the coresponding notes is deleted<br>
 <br>

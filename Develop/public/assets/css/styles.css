@@ -82,6 +82,10 @@ html body {
   padding-top: 15px;
 }
 
+.entryTextSep {
+  border: 10px solid var(--mainBG);
+}
+
 .note-title {
   height: 50px;
   margin-top: 13px;

@@ -12,6 +12,10 @@
 
 }
 
+.flex-container {
+  position:relative;
+}
+
 html body {
   min-height: 100vh;
   /* height: 100%; */
@@ -20,6 +24,7 @@ html body {
   background-color: var(--mainBG);
   display:flex; 
   flex-direction:column;
+  display: flex;
 }
 
 
@@ -28,10 +33,6 @@ html body {
   margin: 20px;
   height: 50px;
   width: 50px;
-}
-
-ul {
-  max-width: 250px;
 }
 
 .icons i {
@@ -105,7 +106,8 @@ ul {
 
 .textBox {
   /*margin-left: 50px;*/
-  padding: 50px;
+  padding: 40px;
+  padding-bottom: 0px;
   width: 85%;
   height: 50%;
   -webkit-border-radius:;
@@ -128,6 +130,7 @@ ul {
 .list-item-title {
   display: inline-block;
   width: 75%;
+  font-size: 22px;
 }
 
 .list-container i {
@@ -197,7 +200,7 @@ ul {
 .card-title {
   text-align: center;
   border-radius: 15px;
-  height: 110px;
+  height: 108px;
   width: 300px%;
   font-size: 25px;
   margin: 30px;
@@ -214,17 +217,12 @@ ul {
 /* =================== Footer ===================  */
 
 footer {
-  position: absolute;
-  bottom: 0;
   margin-bottom: 0px;
-  margin-top: 50px;
-  height: 50px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  bottom: 0;
   text-align: center;
   background: var(--headerBG);
   color: var(--whiteMatch);
-  width: 100%;
+  position: fixed;
 }
 
 
@@ -238,8 +236,10 @@ footer ul li {
 
 footer ul {
   text-align: center;
+  width: 100%;
+  padding-top: 20px;
 }
 
 .content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
+  padding-bottom: 2.5rem;    Footer height
 }

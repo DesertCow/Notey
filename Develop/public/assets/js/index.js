@@ -150,13 +150,13 @@ const renderNoteList = async (notes) => {
   // Returns HTML element with or without a delete button
   const createLi = (text, delBtn = true) => {
     const liEl = document.createElement('li');
-    liEl.classList.add('list-group-item', 'card-title');
+    liEl.classList.add('list-group-item', 'card-title', 'd-flex', 'row');
+    liEl.addEventListener('click', handleNoteView);
 
     const spanEl = document.createElement('span');
-    spanEl.classList.add('list-item-title');
-    spanEl.classList.add('mt-4');
+    spanEl.classList.add('list-item-title', 'col', 'd-flex', 'align-items-center');
     spanEl.innerText = text;
-    spanEl.addEventListener('click', handleNoteView);
+    // spanEl.addEventListener('click', handleNoteView);
 
     liEl.append(spanEl);
 

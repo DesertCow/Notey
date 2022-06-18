@@ -87,10 +87,13 @@ Version 0.2</h5>
 <h3 align="center">⚡ ⚡ App Demo ⚡ ⚡</h3>
 
 ---
-<h4>Demo 1</h4><br>
 
-[![Demo Video Screen Shot](https://img.youtube.com/vi/##VIDEONAME/0.jpg)](https://www.youtube.com/watch?v=##VIDEONAME)
+<p align="center">
+<img src="./Develop/meta/Notey!_Demo.gif" alt="Mock Up of App" width="650")
+</p>
 
+<br>
+<br>
 
 <br>
 <br>
@@ -100,8 +103,10 @@ Version 0.2</h5>
 -----
 
 ````
-# uuid https://www.npmjs.com/package/uuid#uuidv4options-buffer-offset
+# https://www.npmjs.com/package/uuid#uuidv4options-buffer-offset
 npm i uuid
+
+# http://expressjs.com/en/4x/api.html
 npm i express
 
 ````

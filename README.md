@@ -8,15 +8,14 @@
 
 💼 Module 11 Challenge 💼<br>
 By Clayton Skaggs<br>
-(WW24.5) / June 19th 2022
+(WW24.5) / June 17th 2022
 
-Version 0.1</h5>
+Version 0.2</h5>
 </div>
 
 <br>
 <br>
 
----
 
 <h3 align="center">🚀 🚀 Deployment Information 🚀 🚀</h3>
 
@@ -88,27 +87,13 @@ Version 0.1</h5>
 <h3 align="center">⚡ ⚡ App Demo ⚡ ⚡</h3>
 
 ---
-<h4>Demo 1</h4><br>
 
-[![Demo Video Screen Shot](https://img.youtube.com/vi/##VIDEONAME/0.jpg)](https://www.youtube.com/watch?v=##VIDEONAME)
-
-
-<br>
-<br>
-
-<h3 align="center">🧪 🧪 Test Information 🧪 🧪</h3>
-
------
+<p align="center">
+<img src="./Develop/meta/Notey!_Demo.gif" alt="Mock Up of App" width="650")
+</p>
 
 <br>
-
-<h4>How to execute test suite:</h4>
-
-````
-
-npm test
-
-````
+<br>
 
 <br>
 <br>
@@ -118,8 +103,11 @@ npm test
 -----
 
 ````
-# uuid https://www.npmjs.com/package/uuid#uuidv4options-buffer-offset
+# https://www.npmjs.com/package/uuid#uuidv4options-buffer-offset
 npm i uuid
+
+# http://expressjs.com/en/4x/api.html
+npm i express
 
 ````
 

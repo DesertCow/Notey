@@ -128,7 +128,7 @@ app.delete('/api/delete/:note_id', (req, res) => {
       existingNotes = JSON.stringify(existingNotes);
 
       fs.writeFile(`./db/db.json`, existingNotes, err => err ? console.log(err) : null)
-      return res.json(existingNotes);
+      return res.json("Delete Successful Updated DB = " + existingNotes);
 
     })
     // if (res.status(201).json(response)) {

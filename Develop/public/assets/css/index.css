@@ -85,12 +85,15 @@ html body {
 /* =================== Footer ===================  */
 
 footer {
-  position : absolute;
+  /* position : absolute;
   bottom : 0;
   margin-bottom: 0px;
-  min-height: 40px;
+  height: 40px;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 20px; */
+  position : fixed;
+  margin-bottom: 0px;
+  bottom: 0;
   text-align: center;
   background: var(--headerBG);
   color: var(--whiteMatch);

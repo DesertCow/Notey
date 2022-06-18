@@ -12,6 +12,10 @@
 
 }
 
+.flex-container {
+  position:relative;
+}
+
 html body {
   min-height: 100vh;
   /* height: 100%; */
@@ -20,6 +24,7 @@ html body {
   background-color: var(--mainBG);
   display:flex; 
   flex-direction:column;
+  display: flex;
 }
 
 
@@ -28,10 +33,6 @@ html body {
   margin: 20px;
   height: 50px;
   width: 50px;
-}
-
-ul {
-  max-width: 250px;
 }
 
 .icons i {
@@ -214,17 +215,12 @@ ul {
 /* =================== Footer ===================  */
 
 footer {
-  position: absolute;
-  bottom: 0;
   margin-bottom: 0px;
-  margin-top: 50px;
-  height: 50px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  bottom: 0;
   text-align: center;
   background: var(--headerBG);
   color: var(--whiteMatch);
-  width: 100%;
+  position: fixed;
 }
 
 
@@ -238,8 +234,10 @@ footer ul li {
 
 footer ul {
   text-align: center;
+  width: 100%;
+  padding-top: 20px;
 }
 
 .content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
+  /* padding-bottom: 2.5rem;    Footer height */
 }

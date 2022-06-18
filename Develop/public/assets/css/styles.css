@@ -106,7 +106,8 @@ html body {
 
 .textBox {
   /*margin-left: 50px;*/
-  padding: 50px;
+  padding: 40px;
+  padding-bottom: 0px;
   width: 85%;
   height: 50%;
   -webkit-border-radius:;
@@ -129,6 +130,7 @@ html body {
 .list-item-title {
   display: inline-block;
   width: 75%;
+  font-size: 22px;
 }
 
 .list-container i {
@@ -198,7 +200,7 @@ html body {
 .card-title {
   text-align: center;
   border-radius: 15px;
-  height: 110px;
+  height: 108px;
   width: 300px%;
   font-size: 25px;
   margin: 30px;
@@ -239,5 +241,5 @@ footer ul {
 }
 
 .content-wrap {
-  /* padding-bottom: 2.5rem;    Footer height */
+  padding-bottom: 2.5rem;    Footer height
 }
